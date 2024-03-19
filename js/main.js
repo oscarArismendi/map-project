@@ -16,7 +16,7 @@ function animate(){
     car.update();
     canvas.height = window.innerHeight;
     ctx.save();
-    ctx.translate(0,-car.y);
+    ctx.translate(0,-car.y+(this.car.width*0.7));//mirar si es this.car
 
     road.draw(ctx);
     car.draw(ctx);
