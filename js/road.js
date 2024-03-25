@@ -21,29 +21,30 @@ class Road{
         this.borders = [[this.topLeft,this.bottomLeft],[this.topRight,this.bottomRight]];
     }
 
-    draw(ctx){
+    draw(ctx) {
         ctx.lineWidth = 5;
         ctx.strokeStyle = "white";
-
-        for(let i = 1; i <= this.laneCount-1; i++){
-            const x = lerp(this.left, this.right,i/this.laneCount );
+    
+        for (let i = 1; i <= this.laneCount - 1; i++) {
+            const x = lerp(this.left, this.right, i / this.laneCount);
             
-            ctx.setLineDash([20,20]);
+            ctx.setLineDash([20, 20]);
             ctx.beginPath();
-            ctx.moveTo(x,this.top);
-            ctx.lineTo(x,this.bottom);
+            ctx.moveTo(x, this.top);
+            ctx.lineTo(x, this.bottom);
             ctx.stroke();
         }
         ctx.setLineDash([]);
-
-        this.borders.forEach(border =>{
+    
+        this.borders.forEach(border => {
             ctx.beginPath();
-            ctx.moveTo(border[0].x,border[0].y);
-            ctx.lineTo(border[1].x,border[1].y);
+            ctx.moveTo(border[0].x, border[0].y);
+            ctx.lineTo(border[1].x, border[1].y);
             ctx.stroke();
         });
-
     }
+
+
     getLaneCenter(laneIndex){
         const laneWidth = this.width/this.laneCount;
         // the left plus the lane width /2 give the first center position and with the rest we give the center for the oner one
