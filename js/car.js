@@ -118,7 +118,7 @@ class Car{//Have three options AI, KEYS , NPC
         this.y -= Math.cos(this.angle)*this.speed;
     }
 
-    draw(ctx,color){
+    draw(ctx,color, drawSensor = false){
 
         if(this.damaged){
             ctx.fillStyle = "gray";
@@ -133,7 +133,7 @@ class Car{//Have three options AI, KEYS , NPC
         }
         ctx.fill();
 
-        if(this.sensor){
+        if(this.sensor &&  drawSensor){
             this.sensor.draw(ctx);
         }
     }
